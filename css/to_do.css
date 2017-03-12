@@ -1,7 +1,21 @@
-.dropzone {
-  width: 200px;
-  height: 20px;
-  background: blueviolet;
+#to-dos {
+  width: 500px;
+  height: 750px;
+  background: yellow;
   margin-bottom: 10px;
   padding: 10px;
+}
+
+#finish {
+  width: 500px;
+  height: 750px;
+  background: green;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+#draggable{
+  width: 100px;
+  height: 100px;
+  background: red;
 }

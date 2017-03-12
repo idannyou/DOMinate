@@ -1,5 +1,6 @@
 <script src="./lib/DOMinate.js"></script>
 <script src="./lib/todo.js"></script>
+<link rel="stylesheet" href="./css/to_do.css"/>
 
 <div>
 
@@ -13,7 +14,7 @@
   </button>
 
   <button class='finish-all'>
-    Finish All To Do's
+    Remove All To Do's
   </button>
 
   <button class='get-weather'>
@@ -29,14 +30,13 @@
     <img src="" id='weather-img'/>
   </label>
 
-  <div class='dropzone'>
-    <div id='draggable' draggable='true' ondragstart="event.dataTransfer.setData('text/plain',null)">
+  <div class='dropzone' id='to-dos'>
+    <div id='draggable' draggable='true'>
       Drag Me
     </div>
   </div>
 
-  <div class='dropzone'>
-    DROP HERE
+  <div class='dropzone' id='finish'>
   </div>
 
 </div>
