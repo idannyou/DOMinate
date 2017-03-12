@@ -5,11 +5,38 @@
 
   <h1> To Do List </h1>
   <ul class='todo'>
+
   </ul>
 
   <button class='add-to-do'>
     Add To Do
   </button>
 
+  <button class='finish-all'>
+    Finish All To Do's
+  </button>
+
+  <button class='get-weather'>
+    Check Weather
+  </button>
+
+
+
+  <label for="weather">
+    Temperature (F)
+    <input id='weather' type="text" disabled>
+    </input>
+    <img src="" id='weather-img'/>
+  </label>
+
+  <div class='dropzone'>
+    <div id='draggable' draggable='true' ondragstart="event.dataTransfer.setData('text/plain',null)">
+      Drag Me
+    </div>
+  </div>
+
+  <div class='dropzone'>
+    DROP HERE
+  </div>
 
 </div>

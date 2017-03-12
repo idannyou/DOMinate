@@ -21,7 +21,7 @@ The quickest way to get started with DOMinate is to download this library into y
 
 ## API
 
-[`$l`](#l)  
+[`DOMinate`](#l)  
 
 [DOM Traversal](#dom-traversal)  
   * [`children`](#children)  
@@ -41,17 +41,17 @@ The quickest way to get started with DOMinate is to download this library into y
   * [`on`](#on)  
   * [`off`](#off)  
 
-[`$l.ajax`](#lajax)  
+[`DOMinate.ajax`](#lajax)  
 
-### $l
+### DOMinate
 
-The DOMinate library utilizes the global variable of `$l` as a wrapper for all of the methods in the DOMinate library. For example, `$l("div")` returns a `DOMNodeCollection` object containing all "div" nodes on the DOM page.
+The DOMinate library utilizes the global variable of `DOMinate` as a wrapper for all of the methods in the DOMinate library. For example, `DOMinate("div")` returns a `DOMNodeCollection` object containing all "div" nodes on the DOM page.
 
-`$l` can also be used to create `DOMNodeCollection` objects from unwrapped `HTMLElement`s giving these elements access to DOMinate methods.  
+`DOMinate` can also be used to create `DOMNodeCollection` objects from unwrapped `HTMLElement`s giving these elements access to DOMinate methods.  
 
-The third use of `$l` takes in a string of HTML code, builds `HTMLElement`(s) from the code, and then wraps the `HTMLElement`(s) in a `DOMNodeCollection` object.
+The third use of `DOMinate` takes in a string of HTML code, builds `HTMLElement`(s) from the code, and then wraps the `HTMLElement`(s) in a `DOMNodeCollection` object.
 
-The final use of `$l` is as tool to queue functions to run once the DOM is fully loaded.
+The final use of `DOMinate` is as tool to queue functions to run once the DOM is fully loaded.
 
 ### DOM Traversal
 
@@ -113,7 +113,7 @@ Adds event listener to each `DOMNodeCollection` element.  List of events are ava
 
 Removes event listener from each `DOMNodeCollection` element.
 
-### $l.ajax
+### DOMinate.ajax
 
 Sends HTTP Request.  Accepts a `Hash` object as an argument with any of the following attributes:
   * method (default: "GET"): HTTP Request method or type
