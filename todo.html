@@ -3,18 +3,17 @@
 <link rel="stylesheet" href="./css/to_do.css"/>
 
 <div>
+  <title>
+    To Do's
+  </title>
 
-  <h1> To Do List </h1>
-  <ul class='todo'>
-
-  </ul>
 
   <button class='add-to-do'>
     Add To Do
   </button>
 
   <button class='finish-all'>
-    Remove All To Do's
+    Remove All Completed
   </button>
 
   <button class='get-weather'>
@@ -30,13 +29,18 @@
     <img src="" id='weather-img'/>
   </label>
 
-  <div class='dropzone' id='to-dos'>
-    <div id='draggable' draggable='true'>
-      Drag Me
+  <div class='dragndrop'>
+    <div>
+      <h1> To Do List </h1>
+      <div class='dropzone' id='to-dos'>
+      </div>
     </div>
-  </div>
 
-  <div class='dropzone' id='finish'>
+    <div>
+      <h1> Completed </h1>
+      <div class='dropzone' id='finish'>
+      </div>
+    </div>
   </div>
 
 </div>

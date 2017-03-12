@@ -1,21 +1,59 @@
 #to-dos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 500px;
   height: 750px;
-  background: yellow;
+  background: #7FFFD4;
   margin-bottom: 10px;
   padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
 }
 
 #finish {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 500px;
   height: 750px;
-  background: green;
+  background: #DDA0DD;
   margin-bottom: 10px;
   padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
 }
 
 #draggable{
-  width: 100px;
-  height: 100px;
-  background: red;
+  background: transparent;
+  margin: 10px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#draggable textarea{
+  width: 150px;
+  height: 150px;
+  background: #FFFACD;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 15px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+#draggable button{
+  position: absolute;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-weight: bold;
+  top: 5px;
+  left: 5px;
+}
+
+.dragndrop{
+  display: flex;
 }
