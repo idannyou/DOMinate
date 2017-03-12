@@ -1,7 +1,7 @@
 #to-dos {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   width: 500px;
   height: 750px;
   background: #7FFFD4;
@@ -14,7 +14,7 @@
 #finish {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   width: 500px;
   height: 750px;
   background: #DDA0DD;
@@ -33,6 +33,10 @@
   position: relative;
 }
 
+#draggable:hover{
+  margin-top: -5px;
+}
+
 #draggable textarea{
   width: 150px;
   height: 150px;
@@ -43,6 +47,8 @@
   padding: 15px;
   box-shadow: 5px 5px 5px #888888;
 }
+
+
 
 #draggable button{
   position: absolute;
@@ -56,4 +62,10 @@
 
 .dragndrop{
   display: flex;
+  font-family: sans-serif;
+}
+
+.dragndrop h1{
+  color: #708090;
+  text-align: center;
 }
