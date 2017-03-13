@@ -1,8 +1,5 @@
 # DOMinate
 
-[Live!][DOMinate]
-[DOMinate]: http://dannyou.pro/DOMinate
-
 DOMinate is a JavaScript DOM interaction library inspired by jQuery.  Using DOMinate, users can:
   * Select single or multiple DOM elements
   * Traverse and manipulate DOM elements
@@ -10,6 +7,13 @@ DOMinate is a JavaScript DOM interaction library inspired by jQuery.  Using DOMi
   * Create `DOMNodeCollection` objects from `HTMLElement`s
   * Queue functions until DOM is fully loaded
   * HTTP requests
+
+## Live Demo
+
+[Live!][DOMinate]
+[DOMinate]: http://dannyou.pro/DOMinate
+
+![alt text](https://github.com/idannyou/DOMinate/blob/master/Example.gif "Example")
 
 ## Getting Started
 
