@@ -115,7 +115,7 @@ Removes event listener from each `DOMNodeCollection` element.
 
 ### DOMinate.ajax
 
-Sends HTTP Request.  Accepts a `Hash` object as an argument with any of the following attributes:
+Asynchronous HTTP Request.  Accepts a `Hash` object as an argument with any of the following attributes:
   * method (default: "GET"): HTTP Request method or type
   * url (default: window.location.href): URL for HTTP Request
   * success: success callback
