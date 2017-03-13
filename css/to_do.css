@@ -17,24 +17,24 @@
   font-size: 28px;
 }
 
-#to-dos {
+.dropzone{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   width: 500px;
   height: 750px;
+  overflow: auto;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #888888;
+}
+
+#to-dos {
   background: #7FFFD4;
-  overflow: scroll;
 }
 
 #finish {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 500px;
-  height: 750px;
   background: #DDA0DD;
-  overflow: scroll;
 }
 
 #draggable{
@@ -74,7 +74,6 @@
 
 .dragndrop{
   display: flex;
-  font-family: sans-serif;
   margin: 0 auto;
 }
 
@@ -88,10 +87,11 @@
   font-weight: bold;
   color:#483D8B;
   text-align: center;
+  opacity: .7;
 }
 
 .get-weather:hover{
-  background: black;
+  opacity: 1;
 }
 
 .weather-container img{
@@ -101,11 +101,10 @@
 
 .weather-text{
   display: flex;
-}
-.weather-text h1{
-  margin-bottom: 10px;
+  margin-bottom: 28px;
 }
 
-.weather-text input{
+#weather{
+  width: 100px;
   margin-left: 10px;
 }
