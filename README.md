@@ -6,7 +6,7 @@ DOMinate is a JavaScript DOM interaction library inspired by jQuery.  Using DOMi
   * Build DOM elements
   * Create `DOMNodeCollection` objects from `HTMLElement`s
   * Queue functions until DOM is fully loaded
-  * HTTP requests
+  * Execute HTTP requests
 
 ## Live Demo
 
