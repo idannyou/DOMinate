@@ -1,3 +1,22 @@
+
+.content{
+  display: flex;
+  justify-content: space-between;
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+.content h1{
+  color: #708090;
+  text-align: center;
+  font-size: 28px;
+}
+
+#weather {
+  color: #708090;
+  font-size: 28px;
+}
+
 #to-dos {
   display: flex;
   flex-wrap: wrap;
@@ -5,10 +24,7 @@
   width: 500px;
   height: 750px;
   background: #7FFFD4;
-  margin-bottom: 10px;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 10px;
+  overflow: scroll;
 }
 
 #finish {
@@ -18,10 +34,7 @@
   width: 500px;
   height: 750px;
   background: #DDA0DD;
-  margin-bottom: 10px;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 10px;
+  overflow: scroll;
 }
 
 #draggable{
@@ -34,7 +47,7 @@
 }
 
 #draggable:hover{
-  margin-top: -5px;
+  margin-top: -2px;
 }
 
 #draggable textarea{
@@ -48,24 +61,51 @@
   box-shadow: 5px 5px 5px #888888;
 }
 
-
-
 #draggable button{
   position: absolute;
   z-index: 2;
   background: none;
   border: none;
   font-weight: bold;
-  top: 5px;
-  left: 5px;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
 }
 
 .dragndrop{
   display: flex;
   font-family: sans-serif;
+  margin: 0 auto;
 }
 
-.dragndrop h1{
-  color: #708090;
+.get-weather{
+  padding: 5px;
+  width: 130px;
+  height: 30px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: #9DE6FD;
+  font-weight: bold;
+  color:#483D8B;
   text-align: center;
+}
+
+.get-weather:hover{
+  background: black;
+}
+
+.weather-container img{
+  margin-top: 10px;
+  width: 100px;
+}
+
+.weather-text{
+  display: flex;
+}
+.weather-text h1{
+  margin-bottom: 10px;
+}
+
+.weather-text input{
+  margin-left: 10px;
 }

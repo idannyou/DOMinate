@@ -1,5 +1,6 @@
 <script src="./lib/DOMinate.js"></script>
 <script src="./lib/todo.js"></script>
+<link rel="stylesheet" href="css/reset.css" type="text/css">
 <link rel="stylesheet" href="./css/to_do.css"/>
 
 <div>
@@ -8,39 +9,44 @@
   </title>
 
 
-  <button class='add-to-do'>
-    Add To Do
-  </button>
-
-  <button class='finish-all'>
-    Remove All Completed
-  </button>
-
-  <button class='get-weather'>
-    Check Weather
-  </button>
 
 
+  <section class='content'>
 
-  <label for="weather">
-    Temperature (F)
-    <input id='weather' type="text" disabled>
-    </input>
-    <img src="" id='weather-img'/>
-  </label>
 
-  <div class='dragndrop'>
-    <div>
-      <h1> To Do List </h1>
-      <div class='dropzone' id='to-dos'>
+    <div class='dragndrop'>
+      <div class='add-to-do-container'>
+        <h1> To Do List </h1>
+        <button class='add-to-do'>
+          +
+        </button>
+        <div class='dropzone' id='to-dos'>
+        </div>
+      </div>
+
+      <div class='finish-container'>
+        <h1> Completed </h1>
+        <button class='finish-all'>
+          -
+        </button>
+        <div class='dropzone' id='finish'>
+        </div>
       </div>
     </div>
 
-    <div>
-      <h1> Completed </h1>
-      <div class='dropzone' id='finish'>
+    <div class='weather-container'>
+      <div class='weather-text'>
+        <h1>Temperature (F)</h1>
+        <input id='weather' type="text" disabled>
+      </input>
       </div>
+      <button class='get-weather'>
+        Check Weather
+      </button>
+      <img src="" id='weather-img' class='hidden'/>
     </div>
-  </div>
+
+
+  </section>
 
 </div>
