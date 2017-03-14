@@ -79,6 +79,10 @@
   margin: 0 auto;
 }
 
+.dragndrop button{
+  font-size: 40px;
+}
+
 .get-weather{
   padding: 5px;
   width: 130px;

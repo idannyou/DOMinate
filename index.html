@@ -1,52 +1,69 @@
-<script src="./lib/DOMinate.js"></script>
-<script src="./lib/todo.js"></script>
-<link rel="stylesheet" href="css/reset.css" type="text/css">
-<link rel="stylesheet" href="./css/to_do.css"/>
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>To Do's</title>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U" charset="utf-8"></script>
+    <style type="text/css">
+      #map {
+        width: 500px;
+        height: 500px;
+      };
+     </style>
 
+     <script src="./lib/DOMinate.js"></script>
+     <script src="./lib/todo.js"></script>
+     <link rel="stylesheet" href="css/reset.css" type="text/css">
+     <link rel="stylesheet" href="./css/to_do.css"/>
+  </head>
+  <body>
 
-<div>
-  <title>
-    To Do's
-  </title>
+    <div>
+      <title>
+        To Do's
+      </title>
 
-  <section class='content'>
+      <section class='content'>
 
+        <div class='dragndrop'>
+          <div class='add-to-do-container'>
+            <h1> To Do List </h1>
+            <button class='add-to-do'>
+              +
+            </button>
+            <div class='dropzone' id='to-dos'>
+            </div>
+          </div>
 
-    <div class='dragndrop'>
-      <div class='add-to-do-container'>
-        <h1> To Do List </h1>
-        <button class='add-to-do'>
-          +
-        </button>
-        <div class='dropzone' id='to-dos'>
+          <div class='finish-container'>
+            <h1> Completed </h1>
+            <button class='finish-all'>
+              -
+            </button>
+            <div class='dropzone' id='finish'>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class='finish-container'>
-        <h1> Completed </h1>
-        <button class='finish-all'>
-          -
-        </button>
-        <div class='dropzone' id='finish'>
-        </div>
-      </div>
+        <!-- <div class='weather-container'>
+          <div class='weather-text'>
+            <h1>Temperature (F)</h1>
+            <input id='weather' type="text" disabled>
+          </input>
+          </div>
+          <button class='get-weather'>
+            Check Weather
+          </button>
+          <img src="" id='weather-img' class='hidden'/>
+        </div> -->
+
+      </section>
+
+      <div id="map" ref="map">Map</div>
+
+
     </div>
-
-    <div class='weather-container'>
-      <div class='weather-text'>
-        <h1>Temperature (F)</h1>
-        <input id='weather' type="text" disabled>
-      </input>
-      </div>
-      <button class='get-weather'>
-        Check Weather
-      </button>
-      <img src="" id='weather-img' class='hidden'/>
-    </div>
-
-
-  </section>
-
-</div>
+  </body>
+</html>
