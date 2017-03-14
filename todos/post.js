@@ -30,7 +30,7 @@ class Post {
   getGif(){
     DOMinate.ajax({
       method: 'GET',
-      url: 'http://api.giphy.com/v1/gifs/random?q=to+do+list&api_key=dc6zaTOxFJmzC&rating=pg',
+      url: 'https://api.giphy.com/v1/gifs/random?q=to+do+list&api_key=dc6zaTOxFJmzC&rating=pg',
       success: data => this.addGif(data)
     });
   }
