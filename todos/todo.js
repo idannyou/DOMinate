@@ -12,8 +12,12 @@ DOMinate(() => {
     event.preventDefault();
   });
   document.addEventListener('drop', (event) => handleDrop(event));
+  // Add gifs
+  DOMinate('.add-gif').on('click', () => post.getGif());
+
   // google map
   getPos();
+
 });
 
 const clearAllToDo = function(){

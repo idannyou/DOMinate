@@ -42,15 +42,20 @@
 #draggable{
   background: transparent;
   margin: 10px;
-  height: 150px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-#draggable:hover{
-  margin-top: -2px;
+#draggable input{
+  width: 165px;
+  height: 165px;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #888888;
 }
+
 
 #draggable textarea{
   width: 150px;
@@ -65,7 +70,7 @@
 
 #draggable button{
   position: absolute;
-  z-index: 2;
+  z-index: 1000;
   background: none;
   border: none;
   font-weight: bold;
@@ -83,34 +88,12 @@
   font-size: 40px;
 }
 
-.get-weather{
-  padding: 5px;
-  width: 130px;
-  height: 30px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  background: #9DE6FD;
-  font-weight: bold;
-  color:#483D8B;
-  text-align: center;
-  opacity: .7;
-}
-
-.get-weather:hover{
-  opacity: 1;
-}
-
-.weather-container img{
-  margin-top: 10px;
-  width: 100px;
-}
-
-.weather-text{
+.to-do-buttons{
   display: flex;
-  margin-bottom: 28px;
+  justify-content: space-between;
+  width: 500px;
 }
 
-#weather{
-  width: 100px;
-  margin-left: 10px;
+.add-gif {
+  font-size: 20px !important;
 }
