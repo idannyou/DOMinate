@@ -1,8 +1,9 @@
 const Post = require('./post.js');
-
+const Map = require('./map.js');
 
 DOMinate(() => {
   let post = new Post();
+  let map = new Map();
   DOMinate('.add-to-do').on('click', () => post.addToDo());
   DOMinate('.finish-all').on('click', () => clearAllToDo());
   // Drag options

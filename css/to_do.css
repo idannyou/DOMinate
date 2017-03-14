@@ -24,7 +24,7 @@
   align-content: flex-start;
   align-items: flex-start;
   width: 500px;
-  height: 750px;
+  height: 700px;
   overflow: auto;
   margin: 10px;
   border-radius: 10px;
@@ -40,9 +40,10 @@
 }
 
 #draggable{
-  background: transparent;
+  background: none;
   margin: 10px;
-  width: 150px;
+  width: 200px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -96,4 +97,16 @@
 
 .add-gif {
   font-size: 20px !important;
+}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#map{
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #888888;
+
 }

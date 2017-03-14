@@ -45,10 +45,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	const Post = __webpack_require__(1);
-
+	const Map = __webpack_require__(2);
 
 	DOMinate(() => {
 	  let post = new Post();
+	  let map = new Map();
 	  DOMinate('.add-to-do').on('click', () => post.addToDo());
 	  DOMinate('.finish-all').on('click', () => clearAllToDo());
 	  // Drag options
@@ -236,6 +237,21 @@
 	}
 
 	module.exports = Post;
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	class Map {
+
+	  constructor(){
+
+	  }
+
+	}
+
+	module.exports = Map;
 
 
 /***/ }
