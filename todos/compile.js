@@ -45,13 +45,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	const Post = __webpack_require__(1);
-	const Map = __webpack_require__(2);
 
 	DOMinate(() => {
-	  let post = new Post();
 	  let map = new Map();
-	  DOMinate('.add-to-do').on('click', () => post.addToDo());
+	  // add Post
+	  DOMinate('.add-to-do').on('click', () => createPost());
 	  DOMinate('.finish-all').on('click', () => clearAllToDo());
+	  // Add gifs
+	  DOMinate('.add-gif').on('click', () => createGif());
 	  // Drag options
 	  document.addEventListener('drag', () => {});
 	  document.addEventListener('dragstart', (event) => handleDrag(event));
@@ -59,12 +60,17 @@
 	    event.preventDefault();
 	  });
 	  document.addEventListener('drop', (event) => handleDrop(event));
-	  // Add gifs
-	  DOMinate('.add-gif').on('click', () => post.getGif());
-
-	  // google map
-	  map.getPos();
 	});
+
+	const createPost = function(){
+	  const post = new Post();
+	  post.addToDo();
+	};
+
+	const createGif = function(){
+	  const post = new Post();
+	  post.getGif();
+	};
 
 	const clearAllToDo = function(){
 	  DOMinate('#finish').empty();
@@ -91,7 +97,9 @@
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
+
+	const Map = __webpack_require__(2);
 
 	class Post {
 
@@ -142,7 +150,11 @@
 	    DOMinate('#to-dos').append(div);
 	  }
 
-
+	  //Add map
+	  createMap(){
+	    map = new Map();
+	    map.createMap();
+	  }
 
 	}
 
@@ -156,6 +168,7 @@
 	class Map {
 
 	  constructor(){
+	    this.map = null;
 	    this.getPos();
 	    this.newPos = {};
 	    this.currPos = {};
@@ -177,12 +190,13 @@
 	        zoom: 13
 	      };
 	    const map = new google.maps.Map(document.getElementById('map'), mapOptions);
-	    this.setMarker(this.currPos, map);
-	    this.createEventClick(map);
+	    this.map = map;
+	    this.setMarker(this.currPos, this.map);
+	    this.createEventClick();
 	  }
 
-	  createEventClick(map){
-	    map.addListener('click', (event) => this.getCoord(event));
+	  createEventClick(){
+	    this.map.addListener('click', (event) => this.getCoord(event));
 	  }
 
 	  getCoord(event){
@@ -191,25 +205,26 @@
 	  }
 
 
-	  setMarker(latlngObj, map){
+	  setMarker(latlngObj){
 	    var marker = new google.maps.Marker({
 	      position: this.currPos,
-	      map: map
+	      map: this.map
 	    });
 
-	    this.searchPlaces(map);
+	    this.searchPlaces();
 
 	  }
 
 	  // google search from google API webpage
 
-	  searchPlaces(map){
+	  searchPlaces(){
 	    // Create the search box and link it to the UI element.
 	    var input = document.getElementById('pac-input');
 	    var searchBox = new google.maps.places.SearchBox(input);
-	    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+	    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
 	    // Bias the SearchBox results towards current map's viewport.
+	    let map = this.map;
 	    map.addListener('bounds_changed', function() {
 	      searchBox.setBounds(map.getBounds());
 	    });

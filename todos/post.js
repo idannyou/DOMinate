@@ -1,3 +1,5 @@
+const Map = require('./map.js');
+
 class Post {
 
 
@@ -47,7 +49,11 @@ class Post {
     DOMinate('#to-dos').append(div);
   }
 
-
+  //Add map
+  createMap(){
+    map = new Map();
+    map.createMap();
+  }
 
 }
 

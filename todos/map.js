@@ -1,6 +1,7 @@
 class Map {
 
   constructor(){
+    this.map = null;
     this.getPos();
     this.newPos = {};
     this.currPos = {};
@@ -22,12 +23,13 @@ class Map {
         zoom: 13
       };
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    this.setMarker(this.currPos, map);
-    this.createEventClick(map);
+    this.map = map;
+    this.setMarker(this.currPos, this.map);
+    this.createEventClick();
   }
 
-  createEventClick(map){
-    map.addListener('click', (event) => this.getCoord(event));
+  createEventClick(){
+    this.map.addListener('click', (event) => this.getCoord(event));
   }
 
   getCoord(event){
@@ -36,25 +38,26 @@ class Map {
   }
 
 
-  setMarker(latlngObj, map){
+  setMarker(latlngObj){
     var marker = new google.maps.Marker({
       position: this.currPos,
-      map: map
+      map: this.map
     });
 
-    this.searchPlaces(map);
+    this.searchPlaces();
 
   }
 
   // google search from google API webpage
 
-  searchPlaces(map){
+  searchPlaces(){
     // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     // Bias the SearchBox results towards current map's viewport.
+    let map = this.map;
     map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());
     });
