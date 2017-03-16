@@ -103,10 +103,36 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 #map{
   border-radius: 5px;
   /*box-shadow: 1px 1px 1px #888888;*/
 
+}
+
+@media only screen
+and (min-width : 1360px) {
+
+  .logos{
+    position: fixed;
+    left: 10%;
+    top: 10%;
+  }
+
+}
+
+@media only screen
+and (max-width : 1180px) {
+
+  .logos{
+    display: none;
+  }
+
+}
+
+
+.add-to-do, .finish-all{
+  margin-left: 4%;
 }
