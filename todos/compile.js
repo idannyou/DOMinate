@@ -157,6 +157,7 @@
 
 	  constructor(){
 	    this.getPos();
+	    this.newPos = {};
 	    this.currPos = {};
 	  }
 
@@ -177,6 +178,16 @@
 	      };
 	    const map = new google.maps.Map(document.getElementById('map'), mapOptions);
 	    this.setMarker(this.currPos, map);
+	    this.createEventClick(map);
+	  }
+
+	  createEventClick(map){
+	    map.addListener('click', (event) => this.getCoord(event));
+	  }
+
+	  getCoord(event){
+	    console.log(event.latLng.lat())
+	    console.log(event.latLng.lng())
 	  }
 
 
@@ -190,13 +201,12 @@
 
 	  }
 
-	  // google search
+	  // google search from google API webpage
 
 	  searchPlaces(map){
 	    // Create the search box and link it to the UI element.
 	    var input = document.getElementById('pac-input');
 	    var searchBox = new google.maps.places.SearchBox(input);
-	    debugger
 	    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
 	    // Bias the SearchBox results towards current map's viewport.
@@ -210,7 +220,7 @@
 	      searchBox.addListener('places_changed', function() {
 	        var places = searchBox.getPlaces();
 
-	        if (places.length == 0) {
+	        if (places.length === 0) {
 	          return;
 	        }
 
@@ -252,7 +262,7 @@
 	        });
 	        map.fitBounds(bounds);
 	      });
-	  };
+	  }
 
 
 	}

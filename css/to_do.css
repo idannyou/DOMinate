@@ -136,3 +136,8 @@ and (max-width : 1180px) {
 .add-to-do, .finish-all{
   margin-left: 4%;
 }
+
+#pac-input{
+  background: white;
+  width: 300px;
+}
