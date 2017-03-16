@@ -8,12 +8,21 @@ class Post {
     DOMinate(eleLi).attr({id:'draggable', draggable: true});
     DOMinate(eleLi).append(this.deleteButton());
     DOMinate(eleLi).append(this.addInputButton());
+    DOMinate(eleLi).append(this.addMapButton());
     DOMinate('#to-dos').append(eleLi);
   }
 
   addInputButton(){
     let eleInput = document.createElement('textarea');
     return eleInput;
+  }
+
+  addMapButton(){
+    let buttonEle = document.createElement('button');
+    DOMinate(buttonEle).addClass('post-map');
+    buttonEle.innerHTML = 'O';
+    DOMinate(buttonEle).on('click', () => this.createMap());
+    return buttonEle;
   }
 
   deleteButton(){

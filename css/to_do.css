@@ -69,7 +69,7 @@
   box-shadow: 5px 5px 5px #888888;
 }
 
-#draggable button{
+.delete, .post-map{
   position: absolute;
   z-index: 1000;
   background: none;
@@ -80,12 +80,16 @@
   font-size: 10px;
 }
 
+.post-map{
+  top: 170px;
+}
+
 .dragndrop{
   display: flex;
   margin: 0 auto;
 }
 
-.dragndrop button{
+.add-to-do, .finish-all{
   font-size: 40px;
 }
 
