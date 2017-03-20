@@ -2,6 +2,10 @@ const Map = require('./map.js');
 
 class Post {
 
+  constructor(pos){
+    this.map = null;
+    this.pos = pos;
+  }
 
   addToDo(){
     let eleLi = document.createElement('div');
@@ -60,8 +64,13 @@ class Post {
 
   //Add map
   createMap(){
-    map = new Map();
-    map.createMap();
+    if (this.map){
+      console.log('already have map')
+    } else {
+      console.log('getting map')
+      this.map = new Map();
+    }
+
   }
 
 }

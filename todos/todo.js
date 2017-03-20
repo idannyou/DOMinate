@@ -1,7 +1,6 @@
 const Post = require('./post.js');
 
 DOMinate(() => {
-  let map = new Map();
   // add Post
   DOMinate('.add-to-do').on('click', () => createPost());
   DOMinate('.finish-all').on('click', () => clearAllToDo());
@@ -14,10 +13,19 @@ DOMinate(() => {
     event.preventDefault();
   });
   document.addEventListener('drop', (event) => handleDrop(event));
+  setPosition()
 });
 
+const setPosition = function(){
+  navigator.geolocation.getCurrentPosition((pos) => newPost(pos));
+};
+
 const createPost = function(){
-  const post = new Post();
+  navigator.geolocation.getCurrentPosition((pos) => newPost(pos));
+};
+
+const newPost = function(pos){
+  const post = new Post(pos);
   post.addToDo();
 };
 
@@ -29,6 +37,7 @@ const createGif = function(){
 const clearAllToDo = function(){
   DOMinate('#finish').empty();
 };
+
 
 // dragging
 
