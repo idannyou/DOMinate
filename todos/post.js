@@ -5,7 +5,7 @@ class Post {
   constructor(pos){
     this.map = null;
     this.pos = pos;
-    debugger
+    console.log(this.pos);
   }
 
   addToDo(){

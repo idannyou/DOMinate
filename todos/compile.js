@@ -115,7 +115,7 @@
 	  constructor(pos){
 	    this.map = null;
 	    this.pos = pos;
-	    debugger
+	    console.log(this.pos);
 	  }
 
 	  addToDo(){
@@ -196,20 +196,10 @@
 
 	  constructor(pos){
 	    this.map = null;
-	    this.getPos();
 	    this.newPos = {};
 	    this.currPos = pos;
-	  }
-
-	  // google map
-	  getPos(){
-	    navigator.geolocation.getCurrentPosition((pos) => this.storePos(pos));
-	  }
-
-	  storePos(pos){
-	    console.log('got position')
-	    this.currPos = {lat: pos.coords.latitude, lng: pos.coords.longitude};
 	    this.createMap();
+	    this.setMarker();
 	  }
 
 	  createMap(){
@@ -219,7 +209,6 @@
 	      };
 	    const map = new google.maps.Map(document.getElementById('map'), mapOptions);
 	    this.map = map;
-	    this.getPos();
 	  }
 
 	  // createEventClick(){
@@ -232,12 +221,12 @@
 	  // }
 	  //
 	  //
-	  // setMarker(latlngObj){
-	  //   var marker = new google.maps.Marker({
-	  //     position: this.currPos,
-	  //     map: this.map
-	  //   });
-	  // }
+	  setMarker(latlngObj){
+	    var marker = new google.maps.Marker({
+	      position: this.currPos,
+	      map: this.map
+	    });
+	  }
 	  //
 	  // // google search from google API webpage
 	  //
