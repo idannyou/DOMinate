@@ -1,10 +1,10 @@
 class Map {
 
-  constructor(){
+  constructor(pos){
     this.map = null;
     this.getPos();
     this.newPos = {};
-    this.currPos = {};
+    this.currPos = pos;
   }
 
   // google map

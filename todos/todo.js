@@ -1,6 +1,7 @@
 const Post = require('./post.js');
 
 DOMinate(() => {
+  setPosition();
   // add Post
   DOMinate('.add-to-do').on('click', () => createPost());
   DOMinate('.finish-all').on('click', () => clearAllToDo());
@@ -13,19 +14,18 @@ DOMinate(() => {
     event.preventDefault();
   });
   document.addEventListener('drop', (event) => handleDrop(event));
-  setPosition()
 });
 
+let currPos;
+
 const setPosition = function(){
-  navigator.geolocation.getCurrentPosition((pos) => newPost(pos));
+  navigator.geolocation.getCurrentPosition((pos) => {
+    currPos = {lat: pos.coords.latitude, lng: pos.coords.longitude};
+  });
 };
 
 const createPost = function(){
-  navigator.geolocation.getCurrentPosition((pos) => newPost(pos));
-};
-
-const newPost = function(pos){
-  const post = new Post(pos);
+  const post = new Post(currPos);
   post.addToDo();
 };
 

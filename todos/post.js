@@ -5,6 +5,7 @@ class Post {
   constructor(pos){
     this.map = null;
     this.pos = pos;
+    debugger
   }
 
   addToDo(){
@@ -67,8 +68,7 @@ class Post {
     if (this.map){
       console.log('already have map')
     } else {
-      console.log('getting map')
-      this.map = new Map();
+      this.map = new Map(this.pos);
     }
 
   }

@@ -47,6 +47,7 @@
 	const Post = __webpack_require__(1);
 
 	DOMinate(() => {
+	  setPosition();
 	  // add Post
 	  DOMinate('.add-to-do').on('click', () => createPost());
 	  DOMinate('.finish-all').on('click', () => clearAllToDo());
@@ -59,19 +60,18 @@
 	    event.preventDefault();
 	  });
 	  document.addEventListener('drop', (event) => handleDrop(event));
-	  setPosition()
 	});
 
+	let currPos;
+
 	const setPosition = function(){
-	  navigator.geolocation.getCurrentPosition((pos) => newPost(pos));
+	  navigator.geolocation.getCurrentPosition((pos) => {
+	    currPos = {lat: pos.coords.latitude, lng: pos.coords.longitude};
+	  });
 	};
 
 	const createPost = function(){
-	  navigator.geolocation.getCurrentPosition((pos) => newPost(pos));
-	};
-
-	const newPost = function(pos){
-	  const post = new Post(pos);
+	  const post = new Post(currPos);
 	  post.addToDo();
 	};
 
@@ -115,6 +115,7 @@
 	  constructor(pos){
 	    this.map = null;
 	    this.pos = pos;
+	    debugger
 	  }
 
 	  addToDo(){
@@ -177,8 +178,7 @@
 	    if (this.map){
 	      console.log('already have map')
 	    } else {
-	      console.log('getting map')
-	      this.map = new Map();
+	      this.map = new Map(this.pos);
 	    }
 
 	  }
@@ -194,11 +194,11 @@
 
 	class Map {
 
-	  constructor(){
+	  constructor(pos){
 	    this.map = null;
 	    this.getPos();
 	    this.newPos = {};
-	    this.currPos = {};
+	    this.currPos = pos;
 	  }
 
 	  // google map
