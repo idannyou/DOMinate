@@ -66,7 +66,7 @@ class Post {
   //Add map
   createMap(){
     if (this.map){
-      console.log('already have map')
+      this.map.setMap();
     } else {
       this.map = new Map(this.pos);
     }

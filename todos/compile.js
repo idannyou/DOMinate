@@ -176,7 +176,7 @@
 	  //Add map
 	  createMap(){
 	    if (this.map){
-	      console.log('already have map')
+	      this.map.setMap();
 	    } else {
 	      this.map = new Map(this.pos);
 	    }
@@ -199,7 +199,8 @@
 	    this.newPos = {};
 	    this.currPos = pos;
 	    this.createMap();
-	    this.setMarker();
+	    this.setMarker(pos);
+	    this.createEventClick();
 	  }
 
 	  createMap(){
@@ -211,21 +212,37 @@
 	    this.map = map;
 	  }
 
-	  // createEventClick(){
-	  //   this.map.addListener('click', (event) => this.getCoord(event));
-	  // }
+	  createEventClick(){
+	    this.map.addListener('click', (event) => this.getCoord(event));
+	  }
 	  //
-	  // getCoord(event){
-	  //   console.log(event.latLng.lat())
-	  //   console.log(event.latLng.lng())
-	  // }
+	  getCoord(event){
+	    // console.log(event.latLng.lat())
+	    // console.log(event.latLng.lng())
+	    this.confirmLocation(event);
+	  }
+
+	  confirmLocation(event){
+	    let confirmLoc = confirm('Confirm ToDo Location');
+	    if (confirmLoc){
+	      this.newPos = {lat: event.latLng.lat(), lng: event.latLng.lng()};
+	      this.setMarker(this.newPos);
+	    } else {
+	      alert('Pick Another Location');
+	    }
+	  }
 	  //
 	  //
 	  setMarker(latlngObj){
 	    var marker = new google.maps.Marker({
-	      position: this.currPos,
+	      position: latlngObj,
 	      map: this.map
 	    });
+	  }
+
+	  setMap(){
+	    new google.maps.Map(document.getElementById('map'), this.map);
+	    debugger
 	  }
 	  //
 	  // // google search from google API webpage
