@@ -160,5 +160,7 @@ and (max-width : 1180px) {
 }
 
 #map {
-  z-index: 2000;
+  z-index: -1;
+  position: absolute;
+  top: 5%;
 }

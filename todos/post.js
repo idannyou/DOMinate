@@ -28,7 +28,7 @@ class Post {
   addMapButton(){
     let buttonEle = document.createElement('button');
     DOMinate(buttonEle).addClass('post-map');
-    buttonEle.innerHTML = 'O';
+    buttonEle.innerHTML = '&#8982;';
     DOMinate(buttonEle).on('click', () => this.createMap());
     return buttonEle;
   }

@@ -149,7 +149,7 @@
 	  addMapButton(){
 	    let buttonEle = document.createElement('button');
 	    DOMinate(buttonEle).addClass('post-map');
-	    buttonEle.innerHTML = 'O';
+	    buttonEle.innerHTML = '&#8982;';
 	    DOMinate(buttonEle).on('click', () => this.createMap());
 	    return buttonEle;
 	  }
@@ -213,6 +213,7 @@
 	    this.currPos = pos;
 	    this.newPos = null;
 	    this.markers={};
+	    this.closeMap = this.closeMap.bind(this);
 	    this.createMap();
 	    this.setMarker('currPos', pos);
 	    this.createEventClick();
@@ -227,18 +228,31 @@
 	    this.map = map;
 	    this.createSearch();
 	    this.searchPlaces();
+	    this.changeMapZIndex(2000);
+	    this.addEventListener();
+	  }
+
+	  addEventListener(){
+	      document.addEventListener('click', (event) => this.closeMap(event));
+	  }
+
+	  closeMap(event){
+	    this.changeMapZIndex(2000);
+	  }
+
+	  changeMapZIndex(num){
+	    document.getElementById('map').style.zIndex=num;
+	  }
+
+	  deleteSearch(){
+	    DOMinate('.pac-container').remove();
 	  }
 
 	  createSearch(){
 	    this.deleteSearch();
 	    let inputEle = document.createElement('input');
 	    DOMinate(inputEle).attr({type:'text', id:'pac-input'});
-	    DOMinate('.main-container').append(inputEle);
-	  }
-
-	  deleteSearch(){
-	    debugger
-	    DOMinate('#pac-input')
+	    DOMinate('#map').append(inputEle);
 	  }
 
 	  createEventClick(){
@@ -250,7 +264,7 @@
 	  }
 
 	  confirmLocation(event){
-	    let confirmLoc = confirm('Confirm ToDo Location');
+	    let confirmLoc = confirm('Confirm To Do Location');
 	    if (confirmLoc){
 	      this.newPos = {lat: event.latLng.lat(), lng: event.latLng.lng()};
 	      this.setMarker('newPos', this.newPos);
@@ -288,6 +302,7 @@
 	    this.createEventClick();
 	    this.createSearch();
 	    this.searchPlaces();
+	    this.changeMapZIndex(2000);
 	  }
 	  // //
 	  // // // google search from google API webpage
