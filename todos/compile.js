@@ -210,12 +210,12 @@
 
 	  constructor(pos){
 	    this.map = null;
-	    this.newPos = {};
 	    this.currPos = pos;
+	    this.newPos = null;
+	    this.markers={};
 	    this.createMap();
-	    this.setMarker(pos);
+	    this.setMarker('currPos', pos);
 	    this.createEventClick();
-	    this.searchPlaces = this.searchPlaces.bind(this);
 	  }
 
 	  createMap(){
@@ -247,18 +247,28 @@
 	    let confirmLoc = confirm('Confirm ToDo Location');
 	    if (confirmLoc){
 	      this.newPos = {lat: event.latLng.lat(), lng: event.latLng.lng()};
-	      this.setMarker(this.newPos);
+	      this.setMarker('newPos', this.newPos);
 	    } else {
 	      alert('Pick Another Location');
 	    }
 	  }
 	  //
 	  //
-	  setMarker(latlngObj){
+	  setMarker(name, latLngObj){
+	    this.deleteMarker();
 	    var marker = new google.maps.Marker({
-	      position: latlngObj,
+	      position: latLngObj,
 	      map: this.map
 	    });
+	    this.markers[name]=marker;
+	  }
+
+	  deleteMarker(){
+	    if(!this.markers['newPos']){
+	      return null;
+	    }
+	    this.markers['newPos'].setMap(null);
+	    delete this.markers['newPos'];
 	  }
 
 	  setMap(){
@@ -267,8 +277,8 @@
 	            zoom: 13
 	    };
 	    this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-	    this.setMarker(this.currPos);
-	    this.setMarker(this.newPos);
+	    this.setMarker('currPos', this.currPos);
+	    this.setMarker('newPos', this.newPos);
 	    this.createEventClick();
 	    this.createSearch();
 	    this.searchPlaces();
