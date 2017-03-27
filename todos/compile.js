@@ -227,8 +227,6 @@
 	  }
 	  //
 	  getCoord(event){
-	    // console.log(event.latLng.lat())
-	    // console.log(event.latLng.lng())
 	    this.confirmLocation(event);
 	  }
 
@@ -251,8 +249,10 @@
 	  }
 
 	  setMap(){
-	    new google.maps.Map(document.getElementById('map'), this.map);
 	    debugger
+	    new google.maps.Map(document.getElementById('map'), this.map);
+	    this.setMarker(this.currPos);
+	    this.setMarker(this.newPos);
 	  }
 	  //
 	  // // google search from google API webpage
