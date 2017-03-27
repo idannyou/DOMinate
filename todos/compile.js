@@ -133,7 +133,11 @@
 	    DOMinate(eleLi).attr({id:'draggable', draggable: true});
 	    DOMinate(eleLi).append(this.deleteButton());
 	    DOMinate(eleLi).append(this.addInputButton());
-	    DOMinate(eleLi).append(this.addMapButton());
+
+	    if (this.pos){
+	      DOMinate(eleLi).append(this.addMapButton());
+	    }
+
 	    DOMinate('#to-dos').append(eleLi);
 	  }
 
