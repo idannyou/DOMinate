@@ -22,9 +22,15 @@ class Map {
   }
 
   createSearch(){
+    this.deleteSearch();
     let inputEle = document.createElement('input');
     DOMinate(inputEle).attr({type:'text', id:'pac-input'});
     DOMinate('.main-container').append(inputEle);
+  }
+
+  deleteSearch(){
+    debugger
+    DOMinate('#pac-input')
   }
 
   createEventClick(){
