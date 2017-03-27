@@ -12,11 +12,6 @@
   font-size: 28px;
 }
 
-#weather {
-  color: #708090;
-  font-size: 28px;
-}
-
 .dropzone{
   display: flex;
   flex-wrap: wrap;
