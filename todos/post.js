@@ -1,17 +1,36 @@
+const Map = require('./map.js');
+
 class Post {
 
+  constructor(pos){
+    this.map = null;
+    this.pos = pos;
+  }
 
   addToDo(){
     let eleLi = document.createElement('div');
     DOMinate(eleLi).attr({id:'draggable', draggable: true});
     DOMinate(eleLi).append(this.deleteButton());
     DOMinate(eleLi).append(this.addInputButton());
+
+    if (this.pos){
+      DOMinate(eleLi).append(this.addMapButton());
+    }
+
     DOMinate('#to-dos').append(eleLi);
   }
 
   addInputButton(){
     let eleInput = document.createElement('textarea');
     return eleInput;
+  }
+
+  addMapButton(){
+    let buttonEle = document.createElement('button');
+    DOMinate(buttonEle).addClass('post-map');
+    buttonEle.innerHTML = 'O';
+    DOMinate(buttonEle).on('click', () => this.createMap());
+    return buttonEle;
   }
 
   deleteButton(){
@@ -37,7 +56,7 @@ class Post {
 
   addGif(data){
     const div = document.createElement('div');
-    const img = document.createElement('input');
+    const img = document.createElement('img');
     DOMinate(div).attr({id:'draggable', draggable: true});
     DOMinate(img).attr({type:'image', draggable: false});
     DOMinate(div).append(this.deleteButton());
@@ -47,7 +66,15 @@ class Post {
     DOMinate('#to-dos').append(div);
   }
 
+  //Add map
+  createMap(){
+    if (this.map){
+      this.map.setMap();
+    } else {
+      this.map = new Map(this.pos);
+    }
 
+  }
 
 }
 

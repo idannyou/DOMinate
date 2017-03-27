@@ -1,19 +1,13 @@
 class Map {
 
-  constructor(){
-    this.getPos();
-    this.newPos = {};
-    this.currPos = {};
-  }
-
-  // google map
-  getPos(){
-    navigator.geolocation.getCurrentPosition((pos) => this.storePos(pos));
-  }
-
-  storePos(pos){
-    this.currPos = {lat: pos.coords.latitude, lng: pos.coords.longitude};
+  constructor(pos){
+    this.map = null;
+    this.currPos = pos;
+    this.newPos = null;
+    this.markers={};
     this.createMap();
+    this.setMarker('currPos', pos);
+    this.createEventClick();
   }
 
   createMap(){
@@ -22,39 +16,76 @@ class Map {
         zoom: 13
       };
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    this.setMarker(this.currPos, map);
-    this.createEventClick(map);
+    this.map = map;
+    this.createSearch();
+    this.searchPlaces();
   }
 
-  createEventClick(map){
-    map.addListener('click', (event) => this.getCoord(event));
+  createSearch(){
+    let inputEle = document.createElement('input');
+    DOMinate(inputEle).attr({type:'text', id:'pac-input'});
+    DOMinate('.main-container').append(inputEle);
   }
 
+  createEventClick(){
+    this.map.addListener('click', (event) => this.getCoord(event));
+  }
+  //
   getCoord(event){
-    console.log(event.latLng.lat())
-    console.log(event.latLng.lng())
+    this.confirmLocation(event);
   }
 
-
-  setMarker(latlngObj, map){
+  confirmLocation(event){
+    let confirmLoc = confirm('Confirm ToDo Location');
+    if (confirmLoc){
+      this.newPos = {lat: event.latLng.lat(), lng: event.latLng.lng()};
+      this.setMarker('newPos', this.newPos);
+    } else {
+      alert('Pick Another Location');
+    }
+  }
+  //
+  //
+  setMarker(name, latLngObj){
+    this.deleteMarker();
     var marker = new google.maps.Marker({
-      position: this.currPos,
-      map: map
+      position: latLngObj,
+      map: this.map
     });
-
-    this.searchPlaces(map);
-
+    this.markers[name]=marker;
   }
 
-  // google search from google API webpage
+  deleteMarker(){
+    if(!this.markers['newPos']){
+      return null;
+    }
+    this.markers['newPos'].setMap(null);
+    delete this.markers['newPos'];
+  }
 
-  searchPlaces(map){
+  setMap(){
+    const mapOptions = {
+        center: this.newPos,
+            zoom: 13
+    };
+    this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    this.setMarker('currPos', this.currPos);
+    this.setMarker('newPos', this.newPos);
+    this.createEventClick();
+    this.createSearch();
+    this.searchPlaces();
+  }
+  // //
+  // // // google search from google API webpage
+  // //
+  searchPlaces(){
     // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     // Bias the SearchBox results towards current map's viewport.
+    let map = this.map;
     map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());
     });
