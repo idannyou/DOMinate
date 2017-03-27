@@ -158,3 +158,8 @@ and (max-width : 1180px) {
 .position:hover + .no-show{
   display: block;
 }
+
+#map {
+  position: absolute;
+  top: 10%;
+}
