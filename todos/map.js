@@ -22,6 +22,7 @@ class Map {
     this.searchPlaces();
     this.changeMapZIndex(2000);
     this.addEventListener();
+    DOMinate('#map').removeClass('hidden');
   }
 
   addEventListener(){
@@ -29,7 +30,11 @@ class Map {
   }
 
   closeMap(event){
-    this.changeMapZIndex(2000);
+    if(!(event.target.classList[0]==="post-map" ||
+          event.target.parentElement.parentElement.classList[0]==="gm-style")){
+      this.changeMapZIndex(-1);
+      DOMinate('#map').addClass('hidden');
+    }
   }
 
   changeMapZIndex(num){
@@ -95,6 +100,7 @@ class Map {
     this.createSearch();
     this.searchPlaces();
     this.changeMapZIndex(2000);
+    DOMinate('#map').removeClass('hidden');
   }
   // //
   // // // google search from google API webpage
