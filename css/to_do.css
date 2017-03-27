@@ -24,9 +24,10 @@
   align-content: flex-start;
   align-items: flex-start;
   width: 500px;
-  height: 700px;
+  height: 660px;
   overflow: auto;
   margin: 10px;
+  padding-top: 20px;
   border-radius: 10px;
   box-shadow: 1px 1px 1px #888888;
 }
@@ -40,10 +41,8 @@
 }
 
 #draggable{
-  background: none;
+  background: transparent;
   margin: 10px;
-  width: 200px;
-  height: 200px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -52,7 +51,6 @@
 #draggable input{
   width: 165px;
   height: 165px;
-  margin: 5px;
   border-radius: 5px;
   box-shadow: 5px 5px 5px #888888;
 }
@@ -64,7 +62,6 @@
   background: #FFFACD;
   border: 1px solid transparent;
   border-radius: 5px;
-  margin: 5px;
   padding: 15px;
   box-shadow: 5px 5px 5px #888888;
 }
