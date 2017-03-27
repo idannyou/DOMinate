@@ -147,7 +147,19 @@ and (max-width : 1180px) {
   color: red;
 }
 
+.green{
+  color: green;
+}
+
 .position{
   font-size: 25px;
   cursor: pointer;
+}
+
+.no-show{
+  display: none;
+}
+
+.position:hover + .no-show{
+  display: block;
 }

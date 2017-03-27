@@ -67,7 +67,18 @@
 	const setPosition = function(){
 	  navigator.geolocation.getCurrentPosition((pos) => {
 	    currPos = {lat: pos.coords.latitude, lng: pos.coords.longitude};
+	    setGPSIndicator();
 	  });
+	};
+
+	const setGPSIndicator = function(){
+	  DOMinate('.position').removeClass('red');
+	  DOMinate('.position').addClass('green');
+	  showPos();
+	};
+
+	const showPos = function(){
+	  DOMinate('.no-show').html('Position Ready');
 	};
 
 	const createPost = function(){
