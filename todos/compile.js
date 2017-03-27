@@ -115,7 +115,6 @@
 	  constructor(pos){
 	    this.map = null;
 	    this.pos = pos;
-	    console.log(this.pos);
 	  }
 
 	  addToDo(){
@@ -163,7 +162,7 @@
 
 	  addGif(data){
 	    const div = document.createElement('div');
-	    const img = document.createElement('input');
+	    const img = document.createElement('img');
 	    DOMinate(div).attr({id:'draggable', draggable: true});
 	    DOMinate(img).attr({type:'image', draggable: false});
 	    DOMinate(div).append(this.deleteButton());
