@@ -230,7 +230,7 @@
 	    this.searchPlaces();
 	    this.changeMapZIndex(2000);
 	    this.addEventListener();
-	    DOMinate('#map').removeClass('hidden');
+	    // DOMinate('#map').removeClass('hidden');
 	  }
 
 	  addEventListener(){
@@ -240,8 +240,8 @@
 	  closeMap(event){
 	    if(!(event.target.classList[0]==="post-map" ||
 	          event.target.parentElement.parentElement.classList[0]==="gm-style")){
-	      this.changeMapZIndex(-1);
-	      DOMinate('#map').addClass('hidden');
+	      document.getElementById('map').style.zIndex=-1;
+	      // DOMinate('#map').addClass('hidden');
 	    }
 	  }
 
@@ -297,8 +297,9 @@
 	  }
 
 	  setMap(){
+	    let pos = (this.newPos)? this.newPos : this.currPos;
 	    const mapOptions = {
-	        center: this.newPos,
+	        center: pos,
 	            zoom: 13
 	    };
 	    this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -308,7 +309,7 @@
 	    this.createSearch();
 	    this.searchPlaces();
 	    this.changeMapZIndex(2000);
-	    DOMinate('#map').removeClass('hidden');
+	    // DOMinate('#map').removeClass('hidden');
 	  }
 	  // //
 	  // // // google search from google API webpage
