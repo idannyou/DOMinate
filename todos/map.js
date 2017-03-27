@@ -31,7 +31,8 @@ class Map {
 
   closeMap(event){
     if(!(event.target.classList[0]==="post-map" ||
-          event.target.parentElement.parentElement.classList[0]==="gm-style")){
+          event.target.parentElement.parentElement.classList[0]==="gm-style" ||
+          event.target.id==="pac-input")){
       document.getElementById('map').style.zIndex=-1;
       // DOMinate('#map').addClass('hidden');
     }
