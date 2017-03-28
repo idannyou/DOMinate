@@ -8,21 +8,35 @@ class Map {
     this.closeMap = this.closeMap.bind(this);
     this.createMap();
     this.setMarker('currPos', pos);
-    this.createEventClick();
   }
 
   createMap(){
+    this.deleteDiv();
+    this.createDiv();
+    let pos = (this.newPos)? this.newPos : this.currPos;
     const mapOptions = {
-        center: this.currPos,
+        center: pos,
         zoom: 13
       };
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
     this.map = map;
+    this.setMarker('currPos', this.currPos);
+    this.setMarker('newPos', this.newPos);
     this.createSearch();
     this.searchPlaces();
     this.changeMapZIndex(2000);
+    this.createEventClick();
     this.addEventListener();
-    // DOMinate('#map').removeClass('hidden');
+  }
+
+  createDiv(){
+    let div = document.createElement('div');
+    DOMinate(div).attr({id: 'map', ref: 'map'});
+    DOMinate('.main-container').append(div);
+  }
+
+  deleteDiv(){
+    DOMinate('#map').remove();
   }
 
   addEventListener(){
@@ -33,8 +47,7 @@ class Map {
     if(!(event.target.classList[0]==="post-map" ||
           event.target.parentElement.parentElement.classList[0]==="gm-style" ||
           event.target.id==="pac-input")){
-      document.getElementById('map').style.zIndex=-1;
-      // DOMinate('#map').addClass('hidden');
+      this.deleteDiv();
     }
   }
 
@@ -89,21 +102,7 @@ class Map {
     delete this.markers['newPos'];
   }
 
-  setMap(){
-    let pos = (this.newPos)? this.newPos : this.currPos;
-    const mapOptions = {
-        center: pos,
-            zoom: 13
-    };
-    this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    this.setMarker('currPos', this.currPos);
-    this.setMarker('newPos', this.newPos);
-    this.createEventClick();
-    this.createSearch();
-    this.searchPlaces();
-    this.changeMapZIndex(2000);
-    // DOMinate('#map').removeClass('hidden');
-  }
+
   // //
   // // // google search from google API webpage
   // //

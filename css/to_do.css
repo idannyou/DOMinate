@@ -153,6 +153,7 @@ and (max-width : 1180px) {
 
 .no-show{
   display: none;
+  position: absolute;
 }
 
 .position:hover + .no-show{

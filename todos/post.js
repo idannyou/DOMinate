@@ -69,7 +69,7 @@ class Post {
   //Add map
   createMap(){
     if (this.map){
-      this.map.setMap();
+      this.map.createMap();
     } else {
       this.map = new Map(this.pos);
     }
