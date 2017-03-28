@@ -44,8 +44,9 @@ class Map {
   }
 
   closeMap(event){
+    debugger
     if(!(event.target.classList[0]==="post-map" ||
-          event.target.parentElement.parentElement.classList[0]==="gm-style" ||
+          event.target.parentElement.parentElement.parentElement.classList[0]==="gm-style" ||
           event.target.id==="pac-input")){
       this.deleteDiv();
     }
