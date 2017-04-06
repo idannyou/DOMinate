@@ -279,17 +279,8 @@
 	  }
 	  //
 	  getCoord(event){
-	    this.confirmLocation(event);
-	  }
-
-	  confirmLocation(event){
-	    let confirmLoc = confirm('Confirm To Do Location');
-	    if (confirmLoc){
-	      this.newPos = {lat: event.latLng.lat(), lng: event.latLng.lng()};
-	      this.setMarker('newPos', this.newPos);
-	    } else {
-	      alert('Pick Another Location');
-	    }
+	    this.newPos = {lat: event.latLng.lat(), lng: event.latLng.lng()};
+	    this.setMarker('newPos', this.newPos);
 	  }
 	  //
 	  //
