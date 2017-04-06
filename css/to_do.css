@@ -135,7 +135,10 @@ and (max-width : 1180px) {
 
 #pac-input{
   background: white;
-  width: 300px;
+  width: 150px;
+  font-size: 15px;
+  margin-left: 10%;
+  text-align: center;
 }
 
 .red{
@@ -154,6 +157,7 @@ and (max-width : 1180px) {
 .no-show{
   display: none;
   position: absolute;
+  font-size: 10px;
 }
 
 .position:hover + .no-show{
