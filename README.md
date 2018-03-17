@@ -10,7 +10,7 @@ DOMinate is a JavaScript DOM interaction library inspired by jQuery.  Using DOMi
 
 ## Live Demo
 
-[DOMinate](http://dannyou.pro/DOMinate)
+[DOMinate](https://idannyou.github.io/DOMinate)
 
 ![alt text](https://github.com/idannyou/DOMinate/blob/master/Example.gif "Example")
 
